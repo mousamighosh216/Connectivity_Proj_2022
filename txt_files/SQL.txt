@@ -1,0 +1,83 @@
+#TABLE PLANE DETAILS:
+create table PlaneDetails
+(PlaneID integer primary key,
+Manufacturer varchar(10),
+ModelName varchar(10),
+OriginalPurchaseDate date,
+LastServiceDate date,
+AirlineName varchar(10));
+
+insert into PlaneDetails values
+(100,'Boeing','747-400','2014-10-10','2018-08-17','Airindia'),
+(101,'Boeing','737-900','2003-03-23','2018-08-17','Vistara'),
+(102,'Embraer','RJ-45','1999-11-24','2018-07-31','IndiGo'),
+(103,'Embraer','RJ-45','2002-10-02','2018-06-20','Flybig'),
+(104,'Boeing','737-900','2000-04-16','2018-07-24','Vistara'),
+(105,'Boeing','747-400','2001-10-25','2018-05-03','Spicejet'),
+(106,'Boeing','737-900','2009-12-02','2018-08-26','Vistara'),
+(107,'Embraer','RJ-45','2005-05-14','2018-03-21','Flybig'),
+(108,'Airbus','A300','1999-10-20','2017-12-27','Airindia'),
+(109,'Embraer','RJ-45','2012-06-12','2018-06-17','Flybig'),
+(110,'Embraer','RJ-45','2014-12-01','2018-02-28','Airindia'),
+(111,'Boeing','737-900','2007-11-24','2018-06-07','Spicejet'),
+(112,'Embraer','RJ-45','2000-08-31','2018-06-08','IndiGo'),
+(113,'Airbus','A330','2011-11-11','2018-09-01','Spicejet');
+
+#TABLE FLIGHT DETAILS
+create table FlightDetails
+(FlightID integer primary key,
+PlaneID integer,
+AirlineName varchar(10),
+AirportCodeOfDeparture varchar(3),
+AirportCodeOfArrival varchar(3),
+DepartureDateTime datetime,
+ArrivalDateTime datetime,
+TicketPrice int);
+
+insert into FlightDetails values
+(1000,108,'Air India','IDR','DEL','2022-12-23 06:28:00','2022-12-23 07:57:00',6402),
+(1001,112,'IndiGo','GWL','MAA','2023-04-24 18:50:00','2023-04-25 00:40:00',6774),
+(1002,104,'Vistara','BHO','BOM','2022-12-29 17:46:00','2022-12-29 19:29:00',6475),
+(1003,100,'Air India','HJR','HYD','2022-12-31 16:21:00','2022-12-31 22:41:00',6678),
+(1004,107,'Flybig','JLR','DEL','2023-02-23 11:53:00','2023-02-23 13:38:00',8533),
+(1005,110,'Air India','BHO','HYD','2023-01-01 11:43:00','2023-01-01 13:58:00',4667),
+(1006,101,'Vistara','IDR','AMD','2023-04-09 12:41:00','2023-04-09 13:52:00',5284),
+(1007,104,'Vistara','BHO','BLR','2023-03-20 12:48:00','2023-03-20 15:04:00',4667),
+(1008,102,'IndiGo','GWL','DEL','2023-01-06 05:31:00','2023-01-06 06:21:00',7245),
+(1009,111,'SpiceJet','JLR','BOM','2023-01-26 22:23:00','2023-01-26 00:15:00',7466),
+(1010,110,'Air India','IDR','MAA','2022-12-04 11:16:00','2022-12-04 16:11:00',6355),
+(1011,103,'Flybig','IDR','BLR','2022-11-04 02:58:00','2022-11-04 04:53:00',5622),
+(1012,106,'Vistara','BHO','BOM','2023-03-22 07:00:00','2023-03-22 08:45:00',6325),
+(1013,111,'SpiceJet','HJR','AMD','2023-04-17 11:16:00','2023-04-17 15:48:00',5674),
+(1014,112,'IndiGo','GWL','BOM','2022-11-14 05:18:00','2022-11-14 07:08:00',6774),
+(1015,106,'Vistara','BHO','DEL','2022-12-20 14:31:00','2022-12-20 15:56:00',6356),
+(1016,105,'SpiceJet','BHO','JAI','2023-03-13 20:09:00','2023-03-14 01:01:00',6462),
+(1017,114,'Air India','IDR','BOM','2022-11-30 14:46:00','2022-11-30 16:02:00',7244),
+(1018,101,'Vistara','JLR','LKO','2022-11-26 01:22:00','2022-11-26 08:36:00',7466),
+(1019,108,'Air India','IDR','JAI','2023-02-25 10:22:00','2023-02-25 11:57:00'4778);
+
+
+#TABLE PASSENGER DETAILS 
+create table PassengerDetails
+(PassID int primary key,
+FlightID integer,
+Name varchar(30),
+Age integer,
+Sex varchar(1),
+Class varchar(30));
+
+insert into PassengerDetails values
+(1,1012,'Juhi Bhavsar',35,'F','Economy'),
+(2,1009,'Rupal Mogul',20,'M','First'),
+(3,1013,'Prerna Kuruvilla',29,'F','Business'),
+(4,1000,'Gunjan Chander',27,'F','Economy'),
+(5,1018,'Prerna Vaidya',42,'F','Economy'),
+(6,1018,'Abhishek Vaidya',43,'M','Business'),
+(7,1014,'Avnesh Singh',54,'M','First'),
+(8,1012,'Nilima Tella',38,'F','Economy'),
+(9,1005,'Richa Patel',26,'F','First'),
+(10,1007,'Bhuvik Sharma',45,'M','First'),
+(11,1011,'Ketan Mishra',47,'M','Business'),
+(12,1019,'Nitin Chourasiya',26,'M','Economy'),
+(13,1001,'Kasturi Luthra',33,'F','Economy'),
+(14,1008,'Zahir Quaser',42,'M','First');
